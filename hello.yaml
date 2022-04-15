@@ -1,0 +1,12 @@
+apiVersion: extensions.istio.io/v1alpha1
+kind: WasmPlugin
+metadata:
+  name: helloworld
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+      istio: ingressgateway-public-external
+  pluginName: add_header
+  url: oci://public.ecr.aws/p9m6u4l7/wasm-hello:v0.1
